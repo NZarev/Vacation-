@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Vacation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double budget = scanner.nextDouble();
+        String season = scanner.next();
+
+        String destination = "";
+        String accommodation = "";
+        double expense = 0.0;
+
+        if (budget <= 100) {
+            destination = "Bulgaria";
+            if (season.equals("summer")) {
+                accommodation = "Camp";
+                expense = budget * 0.30;
+            } else if (season.equals("winter")) {
+                accommodation = "Hotel";
+                expense = budget * 0.70;
+            }
+        } else if (budget <= 1000) {
+            destination = "Balkans";
+            if (season.equals("summer")) {
+                accommodation = "Camp";
+                expense = budget * 0.40;
+            } else if (season.equals("winter")) {
+                accommodation = "Hotel";
+                expense = budget * 0.80;
+            }
+        } else {
+            destination = "Europe";
+            accommodation = "Hotel";
+            expense = budget * 0.90;
+        }
+
+        System.out.println("Somewhere in " + destination);
+        System.out.printf("%s – %.2f%n", accommodation, expense);
+
+        scanner.close();
+    }
+}
